@@ -3,63 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VideoTube</title>
-  <link rel="stylesheet" href="style.css">
+  <title>MyTube</title>
+  <style>
+    /* CSS样式可以根据需要进行自定义 */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    
+    #header {
+      background-color: #ff0000;
+      color: #ffffff;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    #content {
+      margin: 20px;
+      text-align: center;
+    }
+    
+    #footer {
+      background-color: #000000;
+      color: #ffffff;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <div class="header">
-    <div class="logo">
-      <h1>VideoTube</h1>
-    </div>
-    <div class="search-bar">
-      <input type="text" placeholder="Search">
-      <button type="submit">Search</button>
-    </div>
-    <div class="user-menu">
-      <ul>
-        <li><a href="#">Sign In</a></li>
-        <li><a href="#">Create Account</a></li>
-      </ul>
-    </div>
+  <div id="header">
+    <h1>Welcome to MyTube</h1>
   </div>
-  <div class="main-content">
-    <div class="sidebar">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Trending</a></li>
-        <li><a href="#">Subscriptions</a></li>
-        <li><a href="#">Library</a></li>
-      </ul>
-    </div>
-    <div class="video-grid">
-      <div class="video-item">
-        <a href="#">
-          <img src="thumbnail.jpg" alt="">
-          <div class="video-title">
-            <h3>Video Title</h3>
-          </div>
-        </a>
-      </div>
-      <div class="video-item">
-        <a href="#">
-          <img src="thumbnail.jpg" alt="">
-          <div class="video-title">
-            <h3>Video Title</h3>
-          </div>
-        </a>
-      </div>
-      <div class="video-item">
-        <a href="#">
-          <img src="thumbnail.jpg" alt="">
-          <div class="video-title">
-            <h3>Video Title</h3>
-          </div>
-        </a>
-      </div>
-    </div>
+  
+  <div id="content">
+    <h2>Featured Videos</h2>
+    <p>Here are some of the most popular videos on MyTube:</p>
+    <ul>
+      <li><a href="#">Video 1</a></li>
+      <li><a href="#">Video 2</a></li>
+      <li><a href="#">Video 3</a></li>
+    </ul>
   </div>
-  <div class="footer">
-    <p>Copyright &copy; 2023 VideoTube</p>
+  
+  <div id="footer">
+    <p>&copy; 2024 MyTube. All rights reserved.</p>
   </div>
 </body>
 </html>
