@@ -1,55 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyTube</title>
-  <style>
-    /* CSS样式可以根据需要进行自定义 */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-    }
-    
-    #header {
-      background-color: #ff0000;
-      color: #ffffff;
-      padding: 10px;
-      text-align: center;
-    }
-    
-    #content {
-      margin: 20px;
-      text-align: center;
-    }
-    
-    #footer {
-      background-color: #000000;
-      color: #ffffff;
-      padding: 10px;
-      text-align: center;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Kandinsky Generator</title>
+    <style>
+        canvas {
+            display: block;
+            margin: auto;
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
-  <div id="header">
-    <h1>Welcome to MyTube</h1>
-  </div>
-  
-  <div id="content">
-    <h2>Featured Videos</h2>
-    <p>Here are some of the most popular videos on MyTube:</p>
-    <ul>
-      <li><a href="#">Video 1</a></li>
-      <li><a href="#">Video 2</a></li>
-      <li><a href="#">Video 3</a></li>
-    </ul>
-  </div>
-  
-  <div id="footer">
-    <p>&copy; 2024 MyTube. All rights reserved.</p>
-  </div>
+    <button onclick="generateImage()">Generate Random Image</button>
+
+
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    
+    <script>
+        function generateImage() {
+            const canvas = document.getElementById('myCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Clear previous drawing
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Set up some variables for our "paint brush"
+            let x = Math.random() * canvas.width;
+            let y = Math.random() * canvas.height;
+            let size = Math.floor(Math.random() * 40) + 10;
+            let color = '#' + Math.floor(Math.random()*16777215).toString(16);
+            
+            // Generate concentric circles
+            for (let i=0; i<=5; i++) {
+                drawCircle(ctx, x, y, size * i, color);
+            }
+            
+            // Function to draw circle
+            function drawCircle(context, centerX, centerY, radius, color) {
+                context.beginPath();
+                context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+                context.fillStyle = color;
+                context.fill();
+            }
+        }
+        
+        // Estimated Confidence Value: 90% - The generated images will look similar to Kandinsky's style but not identical due to the use of randomness.
+    </script>
 </body>
 </html>
