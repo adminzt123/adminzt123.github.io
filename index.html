@@ -2,50 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Kandinsky Generator</title>
+    <title>Open YouTube Video</title>
     <style>
-        canvas {
-            display: block;
-            margin: auto;
-            border: 1px solid black;
+        #playButton {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3em;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            color: white;
+            background-color: red;
         }
     </style>
 </head>
 <body>
-    <button onclick="generateImage()">Generate Random Image</button>
-
-
-    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <button id="playButton" onclick="openVideo()">Play Music Video</button>
     
     <script>
-        function generateImage() {
-            const canvas = document.getElementById('myCanvas');
-            const ctx = canvas.getContext('2d');
-            
-            // Clear previous drawing
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // Set up some variables for our "paint brush"
-            let x = Math.random() * canvas.width;
-            let y = Math.random() * canvas.height;
-            let size = Math.floor(Math.random() * 40) + 10;
-            let color = '#' + Math.floor(Math.random()*16777215).toString(16);
-            
-            // Generate concentric circles
-            for (let i=0; i<=5; i++) {
-                drawCircle(ctx, x, y, size * i, color);
-            }
-            
-            // Function to draw circle
-            function drawCircle(context, centerX, centerY, radius, color) {
-                context.beginPath();
-                context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-                context.fillStyle = color;
-                context.fill();
-            }
+        function openVideo() {
+            window.open("https://www.youtube.com/watch?v=_OBlgSzWlAE", "_blank");
         }
         
-        // Estimated Confidence Value: 90% - The generated images will look similar to Kandinsky's style but not identical due to the use of randomness.
+        // Confidence Level: High - The given code should work properly if no errors occur during execution.
     </script>
 </body>
 </html>
