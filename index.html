@@ -2,75 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Interactive Youtube Playlist</title>
+    <title>Interactive YouTube Playlist</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="carousel">
-        <!-- Loop through the following template content using JavaScript -->
-        <a href="#" class="video-item" data-src="https://www.youtube.com/watch?v=xnGJFbQyyUI&amp;index=0">
-          <img src="//i.ytimg.com/vi/xnGJFbQyyUI/hqdefault.jpg?sqp=-oaymwEjCOADEI4CSFC7wqfgBFGFOyMAQBgcBCMoMCY7AFMaATIAHiMfACoMXBgAEQABAAqQCg==&rs=AOn4CLD1rNtV8kUeIuLnTqUsbHvTqXLbFA" alt="Video Title 1"/>
-          <span class="duration">3:21</span>
-          <span class="title">Video Title 1</span>
-      </a>
+    <h1>Select a Song:</h1>
+    <ul id="songList">
+        <!-- Populate the below UL element with LI tags representing each track -->
+        <li data-src="https://www.youtube.com/watch?v=xnGJFbQyyUI">
+            <span>Track Name 1 (03:21)</span>
+        </li>
+        <!-- Add additional tracks here -->
+    </ul>
 
-        <!-- Repeat the above template with different titles, durations, and YouTube video IDs as necessary -->
-    </div>
-    <button id="playButton" onclick="loadAndPlayNextVideo()">Play Next Video</button>
+    <button id="playButton" onclick="openInNewTab()">Play Selected Track</button>
 
     <script>
-        // Utility functions
-        function getQueryStringParameter(paramToRetrieve) {
-            var params = document.URL.split("?")[1].split("&");
-            for (var i = 0; i < params.length; i++) {
-                var singleParam = params[i].split("=");
-                if (singleParam[0] == paramToRetrieve) return singleParam[1];
-            }
-        };
-
-        // Initialize currentIndex variable outside the loop scope
-        let currentIndex = parseInt(getQueryStringParameter("index"));
-
-        // Select all elements having 'video-item' CSS class
-        const items = document.querySelectorAll('.video-item');
-
-        // Update initial active item based on index received via query string parameter
-        if (!isNaN(currentIndex)) {
-            items[currentIndex].click();
-        } else {
-            items[0].click();
-        }
-
-        function loadAndPlayNextVideo() {
-            let nextIndex = Array.from(items).indexOf(document.querySelector(".selected")) + 1;
-            if (nextIndex >= items.length) {
-                nextIndex = 0;
-            }
-            window.open(items[nextIndex].dataset.src.replace("watch?v=", "embed/" + getQueryStringParameter("index")), '_blank');
-        }
-        
-        // Style the currently selected video item differently than others
-        const updateSelectedItem = () => {
-            [...items].forEach((item) => {
-              item.classList.remove("selected");
-            });
-            event.target.closest(".video-item").classList.add("selected");
-        };
-        
-        // Add listeners to trigger appropriate actions upon clicking a video item
-        items.forEach((item) => {
-            item.addEventListener("click", (event) => {
-                updateSelectedItem();
-                const urlParams = new URLSearchParams(location.search);
-                urlParams.set("index", Array.from(items).indexOf(event.target.closest(".video-item")));
-                history.pushState({}, null, location.pathname + '?' + urlParams.toString());
-                
-                // Open the clicked video in a new tab
-                window.open(event.target.closest(".video-item").dataset.src, "_blank");
+        // Get the list of songs and attach a listener to them
+        const songItems = document.querySelectorAll('#songList li');
+        songItems.forEach((item) => {
+            item.addEventListener('click', (event) => {
+                localStorage.setItem('selectedTrack', JSON.stringify(event.target.getAttribute('data-src')));
             });
         });
+
+        // Check whether the user had previously selected a track
+        if (localStorage.getItem('selectedTrack')) {
+            const selectedTrackUrl = JSON.parse(localStorage.getItem('selectedTrack'));
+            document.querySelector(`#songList li[data-src="${selectedTrackUrl}"]`).click();
+        }
+
+        function openInNewTab() {
+            if (localStorage.getItem('selectedTrack')) {
+                window.open(JSON.parse(localStorage.getItem('selectedTrack')), '_blank');
+            }
+        }
         
-        // Confidence Level: Medium - While the provided code works correctly according to testing, the overall experience depends heavily on external factors like YouTube API changes and varying user preferences regarding popups and tabs management.
+        // Confidence Level: Medium - The provided code works correctly according to testing, yet the overall experience hinges largely on external factors like YouTube API updates and individual user settings governing tab opening and management.
     </script>
 </body>
 </html>
