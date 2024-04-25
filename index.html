@@ -1,38 +1,82 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Interactive YouTube Playlist</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Static YouTube Playlist Link</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right bottom, rgba(240, 117, 117, 1), rgba(241, 211, 117, 1));
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .launch-button {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 2rem;
+            line-height: 2.5rem;
+            color: #fff;
+            background-color: #f07575;
+            padding: 0.5rem 3rem;
+            border: none;
+            border-radius: 5rem;
+            cursor: pointer;
+            outline: none;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .launch-button:hover {
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+            transform: translateY(-0.2rem);
+        }
+
+        .launch-button:focus {
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+            transform: translateY(0);
+        }
+
+        .launch-button::before,
+        .launch-button::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .launch-button::before {
+            background-color: #ffdd77;
+            filter: blur(1rem);
+            transform: translateX(-1rem) rotateZ(-7deg);
+        }
+
+        .launch-button::after {
+            background-color: #ef6f00;
+            filter: brightness(0.7);
+            transform: translateX(1rem) rotateZ(7deg);
+        }
+
+        .launch-button:hover::before,
+        .launch-button:hover::after {
+            opacity: 1;
+            transform: translateX(0) rotateZ(0);
+        }
+    </style>
 </head>
 <body>
-    <a id="redButton" href="https://www.youtube.com/playlist?list=PLOK5HuoqmTx09piXkv_dP9KRDSZYTcjm_" target="_blank">Click me!</a>
-
-    <script>
-        const redButton = document.getElementById('redButton');
-        redButton.style.backgroundColor = 'rgb(255,0,0)';
-        redButton.style.padding = '1rem';
-        redButton.style.borderRadius = '.5rem';
-        redButton.style.textTransform = 'uppercase';
-        redButton.style.display = 'block';
-        redButton.style.margin = 'auto';
-        redButton.style.fontWeight = 'bold';
-        redButton.style.fontSize = '1.5rem';
-        redButton.style.transition = 'all .3s ease-in-out';
-        
-        redButton.onmouseover = () => {
-            redButton.style.transform = 'scale(1.1)';
-        }
-        
-        redButton.onmouseout = () => {
-            redButton.style.transform = 'none';
-        }
-        
-        // Confidence Level: High - The provided code conforms to the specification and passes thorough testing. It simply utilizes straightforward styling techniques and navigation manipulation to deliver an engaging user experience.
-    </script>
+    <a href="https://www.youtube.com/playlist?list=PLOK5HuoqmTx09piXkv_dP9KRDSZYTcjm_" target="_blank" class="launch-button">LAUNCH PLAYLIST</a>
 </body>
 </html>
-a {
-  text-decoration: none !important;
-  color: inherit !important;
-}
