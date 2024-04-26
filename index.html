@@ -3,58 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>网站主页</title>
-    <link rel="stylesheet" href="style.css">
+    <title>生态保护网站</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="#">首页</a></li>
-                <li><a href="#">关于我们</a></li>
-                <li><a href="#">联系我们</a></li>
+                <li><a href="#home">首页</a></li>
+                <li><a href="#about">关于我们</a></li>
+                <li><a href="#news">新闻中心</a></li>
+                <li><a href="#action">加入我们</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section class="hero">
-            <div class="hero-bg" style="background-image: url('hero-bg.jpg');"></div>
-            <h1>网站主页</h1>
-            <p>欢迎来到我们的网站!</p>
+        <section id="home">
+            <h1>保护生态，保护家园</h1>
+            <p>我们一起保护生态，创造一个美好的未来</p>
             <button>了解更多</button>
         </section>
-        <section class="features">
-            <h2>网站特点</h2>
+        <section id="about">
+            <h2>关于我们</h2>
+            <p>我们是一个非营利组织，旨在保护生态环境，促进可持续发展。</p>
+            <img src="images/about.jpg" alt="关于我们">
+        </section>
+        <section id="news">
+            <h2>新闻中心</h2>
             <ul>
-                <li>
-                    <img src="feature1.jpg" alt="特点1">
-                    <h3>特点1</h3>
-                    <p>这是特点1的描述。</p>
-                </li>
-                <li>
-                    <img src="feature2.jpg" alt="特点2">
-                    <h3>特点2</h3>
-                    <p>这是特点2的描述。</p>
-                </li>
-                <li>
-                    <img src="feature3.jpg" alt="特点3">
-                    <h3>特点3</h3>
-                    <p>这是特点3的描述。</p>
-                </li>
+                <li><a href="#">生态保护最新动态</a></li>
+                <li><a href="#">环境污染的危害</a></li>
+                <li><a href="#">生态保护的重要性</a></li>
             </ul>
         </section>
-        <section class="videos">
-            <h2>视频展示</h2>
-            <div class="video-container">
-                <video src="video1.mp4" controls></video>
-                <video src="video2.mp4" controls></video>
-                <video src="video3.mp4" controls></video>
-            </div>
+        <section id="action">
+            <h2>加入我们</h2>
+            <p>加入我们，共同保护生态环境。</p>
+            <button>报名参加</button>
         </section>
     </main>
     <footer>
-        <p>Copyright © 2023 我们的网站</p>
+        <p>Copyright 2023 生态保护网站</p>
     </footer>
     <script src="script.js"></script>
 </body>
 </html>
+```
+**styles.css**
+```css
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+section {
+    background-color: #f7f7f7;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3e8e41;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    clear: both;
+}
+```
+**图片和视频**
+
+管理员生成了以下图片和视频：
+
+* 图片：about.jpg，news.jpg，action.jpg
+* 视频：eco.mp4，protect.mp4，future.mp4
+
+**生态保护宣传方案**
+
+管理员生成了以下生态保护宣传方案：
+
+* 宣传语：保护生态，保护家园
+* 海报设计：
+```css
+.poster {
+    background-image: url('images/poster.jpg');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.poster h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.poster p {
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.poster button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    paddingNone
